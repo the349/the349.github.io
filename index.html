@@ -7,22 +7,23 @@
 </center>
 <hr>
 <div class="caris">
-    <div class="caris1"><img src="https://avatars2.githubusercontent.com/u/29069199?s=460&amp;v=4" width="100" height="100" style="border-radius:10px;"></div>
-    <div class="caris2"><span>More coming soon</span></div>
+    <div class="carisSl"><img src="https://avatars2.githubusercontent.com/u/29069199?s=460&amp;v=4" width="100" height="100" style="border-radius:10px;"></div>
+    <div class="carisSl"><span>More coming soon</span></div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
 <script>
-    function caris1() {
-        $('.caris2').css("display", "none")
-        $('.caris1').css("display", "block")
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("carisSl");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";
     }
-    function caris2() {
-        $('.caris1').css("display", "none")
-        $('.caris2').css("display", "block")
-    }
-    function caris() {
-        setTimeout(caris1, 3000)
-        setTimeout(caris2, 3000)
-    }
-    setInterval(caris, 6)
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}
+    x[myIndex-1].style.display = "block";
+    setTimeout(carousel, 3000);
+}
 </script>
