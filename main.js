@@ -1,0 +1,48 @@
+var page
+var blogEmbed
+var feed
+$('body').ready(function () {
+    fetch("https://the349.github.io/feed.json").then(data => {data.json().then(data => {feed = data})}).then(() => {
+    blogEmbed = new Vue({
+        el: "#blog-embed",
+        data: {
+            items: feed.posts
+        }
+    })
+    })
+    //main animation
+    $('#page').addClass('slideInDown')
+    //AJAX animation things
+    $(function(){"use strict";var t={prefetch:!0,cacheLength:2,onStart:{duration:250,render:function(t){t.addClass("slideOutDown"),n.restartCSSAnimations()}},onReady:{duration:0,render:function(t,n){t.removeClass("slideOutDown"),t.html(n)}}},n=$("#page").smoothState(t).data("smoothState")});
+    //play the music
+    $('#music').attr('src', 'music.mp3')
+    //include all include attrs
+    includeHTML()
+})
+function includeHTML() {
+  var z, i, elmnt, file, xhttp;
+  /*loop through a collection of all HTML elements:*/
+  z = document.getElementsByTagName("*");
+  for (i = 0; i < z.length; i++) {
+    elmnt = z[i];
+    /*search for elements with a certain atrribute:*/
+    file = elmnt.getAttribute("include-html");
+    if (file) {
+      /*make an HTTP request using the attribute value as the file name:*/
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4) {
+          if (this.status == 200) {elmnt.innerHTML = this.responseText;}
+          if (this.status == 404) {elmnt.innerHTML = "Page not found.";}
+          /*remove the attribute, and call this function once more:*/
+          elmnt.removeAttribute("include-html");
+          includeHTML();
+        }
+      }      
+      xhttp.open("GET", file, true);
+      xhttp.send();
+      /*exit the function:*/
+      return;
+    }
+  }
+};
