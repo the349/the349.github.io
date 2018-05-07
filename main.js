@@ -12,8 +12,6 @@ $('body').ready(function () {
     })
     //main animation
     $('#page').addClass('slideInDown')
-    //AJAX animation things
-    $(function(){"use strict";var t={prefetch:!0,cacheLength:2,onStart:{duration:250,render:function(t){t.addClass("slideOutDown"),n.restartCSSAnimations()}},onReady:{duration:0,render:function(t,n){t.removeClass("slideOutDown"),t.html(n)}}},n=$("#page").smoothState(t).data("smoothState")});
     //include all include attrs
     includeHTML()
 })
