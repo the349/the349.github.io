@@ -3,5 +3,9 @@
 		"blogTitle": "Hello",
 		"blogText": "Hello, and welcome to my website.",
 		"blogHead": "<img class='card-img-top' src='https://github.com/the349/pizLinux/blob/master/background2.png?raw=true'>"
+	},{
+		"blogTitle": "LOL",
+		"blogText": "LOL",
+		"blogHead": "<img class='card-img-top' src='https://media.giphy.com/media/26AHQCn4Ce8fLedlm/giphy.gif'>"
 	}]
 }
